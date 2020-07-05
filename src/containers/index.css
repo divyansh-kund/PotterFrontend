@@ -1,0 +1,145 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  background-image: linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%);
+  font-family: 'Robo-condensed',sans-serif; }
+
+button {
+  cursor: pointer; }
+
+@keyframes movefromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes movefromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes movefromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+.u-center-text {
+  text-align: center;
+  margin: 0 auto; }
+
+.u-mrg-big {
+  margin-bottom: 8rem; }
+
+.u-mrg-small {
+  margin-bottom: 2rem; }
+
+.u-mrg-medium {
+  margin-bottom: 4rem; }
+
+.no-mrg {
+  margin: 0; }
+
+.btm-right {
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem; }
+
+.tp-right {
+  display: flex;
+  justify-content: flex-end; }
+
+.Tilt {
+  background-image: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
+  width: 10rem;
+  height: 10rem; }
+  @media screen and (max-width: 600px) {
+    .Tilt {
+      width: 7rem;
+      height: 7rem; } }
+  .Tilt-inner {
+    padding-top: 5px; }
+  @media screen and (max-width: 600px) {
+    .Tilt__image {
+      height: 5rem; } }
+
+.LinkForm {
+  margin: 5rem auto;
+  width: 45rem; }
+  @media screen and (max-width: 600px) {
+    .LinkForm {
+      width: 25rem; } }
+  .LinkForm__detect {
+    background: radial-gradient(circle farthest-side at 0% 50%, #fb1 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px, radial-gradient(circle farthest-side at 0% 50%, #B71 24%, rgba(240, 166, 17, 0) 0) 19px 30px, linear-gradient(#fb1 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #fb1 0) 0 0, linear-gradient(150deg, #fb1 24%, #B71 0, #B71 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #B71 0, #B71 76%, #fb1 0) 0 0, linear-gradient(30deg, #fb1 24%, #B71 0, #B71 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #B71 0, #B71 76%, #fb1 0) 0 0, linear-gradient(90deg, #B71 2%, #fb1 0, #fb1 98%, #B71 0%) 0 0 #fb1;
+    background-size: 40px 60px; }
+    @media screen and (max-width: 600px) {
+      .LinkForm__detect {
+        width: 25rem; } }
+
+.Face {
+  width: 30rem;
+  height: auto;
+  position: absolute;
+  left: 35%;
+  top: 5rem; }
+  @media screen and (max-width: 600px) {
+    .Face {
+      width: 15rem; } }
+  .Face__origin {
+    position: relative; }
+
+@media screen and (max-width: 600px) {
+  .signin {
+    height: 17rem; } }
+
+.signin_info {
+  width: 60%; }
+
+.row {
+  width: 128rem;
+  margin: 0px auto;
+  margin-bottom: 3rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    margin-top: 3rem; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 2rem; }
+  .row .col-1-of-2 {
+    width: calc(( 128rem - 2rem)/2); }
+  .row .col-1-of-3 {
+    width: calc((128rem - 2* 2rem)/3); }
+  .row .col-1-of-4 {
+    width: calc((128rem - 3*2rem)/4); }
+  .row .col-2-of-3 {
+    width: calc((2*(128rem - 2*2rem)/3 ) + 2rem); }
+  .row .col-2-of-4 {
+    width: calc(2 *((128rem - 3*2rem)/4) + 2rem); }
+  .row .col-3-of-4 {
+    width: calc(3 *((128rem - 3*2rem)/4) + 2 * 2rem); }
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; }

@@ -1,0 +1,13 @@
+.Face{
+  width: 30rem;
+  height: auto;
+  position: absolute;
+  left:35%;
+  top:5rem;
+  @media screen and (max-width: 600px) {
+    width: 15rem;
+  }
+  &__origin{
+    position: relative;
+  }
+}
