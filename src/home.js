@@ -54,54 +54,26 @@ class Home extends React.Component {
     this.state= initialState
   }
 
-  loadUser = (data)=>{
-    this.setState({user:
-      {
-        id:data.id,
-        name:data.name,
-        email:data.email,
-        entries:data.entries,
-        joined: data.joined,
-      }
-    })
-  }
-
   //Takes the input i.e. the URL
   onInput = (event) =>{
     this.setState({input: event.target.value});
   }
   //On the button press(submit) display the image with the face recognition
   onSubmit = ()=>{
-
     fetch(this.state.input,{
       headers: {
         'Content-Type': 'application/binary',
         'Access-Control-Allow-Origin': '*',
       },
     }).then((data) => {
-      console.log(data)
+      this.setState({imageURL: data.url})
     }).catch((err) => {
       console.log(err)
     });
 
     if (document.getElementById('ImageInput').value!=='') {
       document.getElementById('Face__info').innerHTML='';
-      document.getElementById('ImageInput').value=""
-        fetch('http://localhost:3000/image',{
-          method: 'put',//Fetch's method is default "get" 
-          //so it turns that into put
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            id: this.state.user.id
-          })
-       })
-       .then(response=>response.json())
-       .then(count=>{
-         this.setState(Object.assign(this.state.user,{entries:count}))
-       })
+      document.getElementById('ImageInput').value="";
        //CLARIFAI IS NOT WORKING
       fetch(this.state.input)
         .then(() => {
@@ -128,7 +100,7 @@ class Home extends React.Component {
   }
   render(){
     const{imageURL,isSignedIn,route} = this.state;
-    const {onRouteChange,onInput,onSubmit,loadUser} = this;
+    const {onRouteChange,onInput,onSubmit} = this;
     return (
       <div className="App">
         <Particles className="particles"
@@ -144,8 +116,8 @@ class Home extends React.Component {
         </div>
         : (
           route === 'signin'
-          ?<Signin loadUser={loadUser} onRouteChange={onRouteChange}/>
-          :<Register onRouteChange={onRouteChange} loadUser={loadUser}/>
+          ?<Signin onRouteChange={onRouteChange}/>
+          :<Register onRouteChange={onRouteChange}/>
         )
         }
       </div>

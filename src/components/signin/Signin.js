@@ -20,31 +20,7 @@ class Signin extends React.Component{
 
 //On submitting the form
     onSubmitSignIn = () => {
-        //Fetches the backend server
-        fetch('http://localhost:3000/signin', {
-            method: 'post',//Fetch's method is default "get" so it turns that into post
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: this.state.signInEmail,//Sends a post request to the server
-             //by specifying the the signINEmail as the value for email
-                password: this.state.signInPassword
-            })
-        })
-            .then(response=>response.json())
-            .then(user=>{
-                if(user.id){//This data was specified to be sent by the server if the request was successful 
-                    this.props.loadUser(user);
-                    this.props.onRouteChange('home');
-                }else{
-                    document.getElementById("Error").innerHTML="Password or username is incorrect"
-                    document.getElementById("email-address").value=""
-                    document.getElementById("password").value=""
-                    //Password and email's input value is reset
-                }
-            });
+        this.props.onRouteChange('home');
     }
 
     render(){

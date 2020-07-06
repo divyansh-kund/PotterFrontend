@@ -22,32 +22,7 @@ class Register extends React.Component{
     }
 
     onSubmitSignIn = () => {
-        //Fetches the backend server
-        fetch('http://localhost:3000/register', {
-            method: 'post',//Fetch's method is default "get" so it turns that into post
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: this.state.email,//Sends a post request to the server
-             //by specifying the the signINEmail as the value for email
-                password: this.state.password,
-                name:this.state.name
-            })
-        })
-            .then(response=>response.json())
-            .then(user=>{
-                if(user.id){//This data was specified to be sent by the server if the request was successful 
-                    this.props.onRouteChange('home');
-                    this.props.loadUser(user);
-                }else{
-                    document.getElementById("email-address").value=""
-                    document.getElementById("password").value=""
-                    document.getElementById("name").value=""
-                    //Password and email's input value is reset
-                }
-            });
+        this.props.onRouteChange('home');
     }
 
     render(){
